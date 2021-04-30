@@ -1,5 +1,4 @@
 import UIKit
-public struct MyLibrary {
+public struct SwiftUtility {
     public init() {}
-    public var view = UIView()
 }
