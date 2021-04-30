@@ -112,7 +112,7 @@ open class DatePickerManager: NSObject, UIPickerViewDelegate, UIPickerViewDataSo
         // trick
         let alertView = UIAlertController(title: title, message: "\n\n\n\n\n\n\n\n\n\n", preferredStyle: .actionSheet);
         alertView.view.addSubview(view)
-        alertView.popoverPresentationController?.sourceView = UIViewController.top?.view
+        alertView.popoverPresentationController?.sourceView = UIApplication.topViewController()?.view
         alertView.popoverPresentationController?.sourceRect = view.bounds
         alertView.view.tintColor = .gray
         self.alertView = alertView
@@ -120,10 +120,10 @@ open class DatePickerManager: NSObject, UIPickerViewDelegate, UIPickerViewDataSo
         // device orientation
         switch UIApplication.shared.statusBarOrientation {
         case .landscapeLeft, .landscapeRight:
-            center = UIViewController.top?.view.center.y
+            center = UIApplication.topViewController()?.view.center.y
             buttonX = alertView.view.frame.size.height - (image!.size.height * 2)
         case .portrait, .portraitUpsideDown:
-            center = UIViewController.top?.view.center.x
+            center = UIApplication.topViewController()?.view.center.x
             buttonX = alertView.view.frame.size.width - (image!.size.width * 2)
         default: break
         }
@@ -146,7 +146,7 @@ open class DatePickerManager: NSObject, UIPickerViewDelegate, UIPickerViewDataSo
         }
         alertView.addAction(ok)
         
-        UIViewController.top?.present(alertView, animated: true, completion: nil)
+        UIApplication.topViewController()?.present(alertView, animated: true, completion: nil)
         
     }
     
