@@ -38,7 +38,7 @@ public extension UIButton {
     }
 }
 
-extension public UIControl {
+public extension UIControl {
     func addAction(for controlEvents: UIControl.Event = .touchUpInside, _ closure: @escaping ()->()) {
         let sleeve = ClosureSleeve(closure)
         addTarget(sleeve, action: #selector(ClosureSleeve.invoke), for: controlEvents)
