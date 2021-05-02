@@ -411,7 +411,7 @@ func convertToDictionary(text: String) -> [String: Any]? {
 }
 
 //MARK:- Toast
-func displayToast(_ message:String)
+public func displayToast(_ message:String)
 {
     UIApplication.topViewController()?.view.makeToast(getTranslate(message))
 }
