@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension String {
+public extension String {
     public func length() -> Int{
         return self.lengthOfBytes(using: String.Encoding.utf8)
     }

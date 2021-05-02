@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UILabel {
+public extension UILabel {
     func getHeight() -> CGFloat{
         let label =  UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: .greatestFiniteMagnitude))
         label.numberOfLines = self.numberOfLines
@@ -19,7 +19,7 @@ extension UILabel {
     }
 }
 
-extension UITapGestureRecognizer {
+public extension UITapGestureRecognizer {
     func didTapAttributedTextInLabel(label: UILabel, targetText: String) -> Bool {
         guard let attributedString = label.attributedText, let lblText = label.text else { return false }
         let targetRange = (lblText as NSString).range(of: targetText)

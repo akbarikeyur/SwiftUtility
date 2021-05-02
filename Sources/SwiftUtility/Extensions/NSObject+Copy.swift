@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension NSObject {
+public extension NSObject {
     func copyValues(fromObject : AnyObject?) {
         
         if fromObject == nil {

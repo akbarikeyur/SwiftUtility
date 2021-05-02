@@ -9,7 +9,7 @@
 import UIKit
 
 
-extension UIImage {
+public extension UIImage {
     
     func imageResize ()-> UIImage{
         

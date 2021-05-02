@@ -9,7 +9,7 @@
 import UIKit
 
 
-extension Date {
+public extension Date {
     func isGreaterThanDate(dateToCompare: Date) -> Bool {
         //Declare Variables
         var isGreater = false

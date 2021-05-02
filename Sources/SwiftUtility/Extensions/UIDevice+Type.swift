@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum DeviceType : Int32 {
+public enum DeviceType : Int32 {
     case iPodTouch5
     case iPodTouch6
     case iPhone4
@@ -39,7 +39,7 @@ enum DeviceType : Int32 {
     case Other
 }
 
-public extension UIDevice {
+public public extension UIDevice {
     
     internal var modelName: DeviceType {
         var systemInfo = utsname()

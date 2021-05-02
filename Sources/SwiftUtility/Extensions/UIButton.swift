@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIButton {
+public extension UIButton {
     
     private func actionHandler(action:(() -> Void)? = nil) {
         struct __ { static var action :(() -> Void)? }
@@ -26,7 +26,7 @@ extension UIButton {
     }
 }
 
-@objc class ClosureSleeve: NSObject {
+@objc public class ClosureSleeve: NSObject {
     let closure: ()->()
 
     init (_ closure: @escaping ()->()) {
@@ -38,7 +38,7 @@ extension UIButton {
     }
 }
 
-extension UIControl {
+extension public UIControl {
     func addAction(for controlEvents: UIControl.Event = .touchUpInside, _ closure: @escaping ()->()) {
         let sleeve = ClosureSleeve(closure)
         addTarget(sleeve, action: #selector(ClosureSleeve.invoke), for: controlEvents)
