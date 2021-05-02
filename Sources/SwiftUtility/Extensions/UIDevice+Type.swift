@@ -39,7 +39,7 @@ public enum DeviceType : Int32 {
     case Other
 }
 
-public public extension UIDevice {
+public extension UIDevice {
     
     internal var modelName: DeviceType {
         var systemInfo = utsname()
