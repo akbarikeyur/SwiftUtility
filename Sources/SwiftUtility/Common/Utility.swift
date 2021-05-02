@@ -19,7 +19,7 @@ struct PLATFORM {
 }
 
 //MARK:- Image Function
-func compressImage(_ image: UIImage, to toSize: CGSize) -> UIImage {
+public func compressImage(_ image: UIImage, to toSize: CGSize) -> UIImage {
     var actualHeight: Float = Float(image.size.height)
     var actualWidth: Float = Float(image.size.width)
     let maxHeight: Float = Float(toSize.height)
@@ -56,7 +56,7 @@ func compressImage(_ image: UIImage, to toSize: CGSize) -> UIImage {
     return  imageData1 == nil ? image : UIImage(data: imageData1!)!
 }
 
-func printData(_ items: Any..., separator: String = " ", terminator: String = "\n")
+public func printData(_ items: Any..., separator: String = " ", terminator: String = "\n")
 {
     #if DEBUG
         items.forEach {
@@ -65,7 +65,7 @@ func printData(_ items: Any..., separator: String = " ", terminator: String = "\
     #endif
 }
 
-func displaySubViewtoParentView(_ parentview: UIView! , subview: UIView!)
+public func displaySubViewtoParentView(_ parentview: UIView! , subview: UIView!)
 {
     subview.translatesAutoresizingMaskIntoConstraints = false
     parentview.addSubview(subview);
@@ -76,7 +76,7 @@ func displaySubViewtoParentView(_ parentview: UIView! , subview: UIView!)
     parentview.layoutIfNeeded()
 }
 
-func displaySubViewWithScaleOutAnim(_ view:UIView){
+public func displaySubViewWithScaleOutAnim(_ view:UIView){
     view.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
     view.alpha = 1
     UIView.animate(withDuration: 0.35, delay: 0.0, usingSpringWithDamping: 0.55, initialSpringVelocity: 1.0, options: [], animations: {() -> Void in
@@ -85,7 +85,7 @@ func displaySubViewWithScaleOutAnim(_ view:UIView){
     })
 }
 
-func displaySubViewWithScaleInAnim(_ view:UIView){
+public func displaySubViewWithScaleInAnim(_ view:UIView){
     UIView.animate(withDuration: 0.25, animations: {() -> Void in
         view.transform = CGAffineTransform(scaleX: 0.65, y: 0.65)
         view.alpha = 0.0
@@ -95,13 +95,13 @@ func displaySubViewWithScaleInAnim(_ view:UIView){
 }
 
 //MARK:- Delay Features
-func delay(_ delay:Double, closure:@escaping ()->()) {
+public func delay(_ delay:Double, closure:@escaping ()->()) {
     DispatchQueue.main.asyncAfter(
         deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
 }
 
 //MARK:- Open Url
-func openUrlInSafari(strUrl : String)
+public func openUrlInSafari(strUrl : String)
 {
     if strUrl.trimmed == "" {
         return
@@ -132,7 +132,7 @@ func openUrlInSafari(strUrl : String)
 }
 
 //MARK:- Call
-func redirectToPhoneCall(_ strNumber : String)
+public func redirectToPhoneCall(_ strNumber : String)
 {
     if strNumber == "" {
         displayToast("provider_no_phone")
@@ -150,7 +150,7 @@ func redirectToPhoneCall(_ strNumber : String)
 }
 
 //MARK:- Email
-func redirectToEmail(_ email : String)
+public func redirectToEmail(_ email : String)
 {
     if email == "" || !email.isValidEmail {
         displayToast("Invalid email address")
@@ -168,17 +168,17 @@ func redirectToEmail(_ email : String)
 }
 
 //MARK:- Color function
-func colorFromHex(hex : String) -> UIColor
+public func colorFromHex(hex : String) -> UIColor
 {
     return colorWithHexString(hex, alpha: 1.0)
 }
 
-func colorFromHex(hex : String, alpha:CGFloat) -> UIColor
+public func colorFromHex(hex : String, alpha:CGFloat) -> UIColor
 {
     return colorWithHexString(hex, alpha: alpha)
 }
 
-func colorWithHexString(_ stringToConvert:String, alpha:CGFloat) -> UIColor {
+public func colorWithHexString(_ stringToConvert:String, alpha:CGFloat) -> UIColor {
     
     var cString:String = stringToConvert.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
     
@@ -201,7 +201,7 @@ func colorWithHexString(_ stringToConvert:String, alpha:CGFloat) -> UIColor {
     )
 }
 
-func imageFromColor(color: UIColor) -> UIImage {
+public func imageFromColor(color: UIColor) -> UIImage {
     let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
     UIGraphicsBeginImageContext(rect.size)
     let context = UIGraphicsGetCurrentContext()
@@ -215,7 +215,7 @@ func imageFromColor(color: UIColor) -> UIImage {
 }
 
 //MARK:- Attribute string
-func attributedStringWithColor(_ mainString : String, _ strings: [String], color: UIColor, font: UIFont? = nil) -> NSAttributedString {
+public func attributedStringWithColor(_ mainString : String, _ strings: [String], color: UIColor, font: UIFont? = nil) -> NSAttributedString {
     let attributedString = NSMutableAttributedString(string: mainString)
     for string in strings {
         let range = (mainString as NSString).range(of: string)
@@ -227,14 +227,14 @@ func attributedStringWithColor(_ mainString : String, _ strings: [String], color
     return attributedString
 }
 
-func attributeStringStrikeThrough(_ mainString : String) -> NSAttributedString
+public func attributeStringStrikeThrough(_ mainString : String) -> NSAttributedString
 {
     let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: mainString)
     attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
     return attributeString
 }
 
-func getAttributeStringWithColor(_ main_string : String, _ substring : [String], color : UIColor?, font : UIFont?, isUnderLine : Bool) -> NSMutableAttributedString
+public func getAttributeStringWithColor(_ main_string : String, _ substring : [String], color : UIColor?, font : UIFont?, isUnderLine : Bool) -> NSMutableAttributedString
 {
     let attribute = NSMutableAttributedString.init(string: main_string)
     
@@ -258,7 +258,7 @@ func getAttributeStringWithColor(_ main_string : String, _ substring : [String],
     return attribute
 }
 
-func attributedStringWithBackgroundColor(_ mainString : String, _ strings: [String], bgcolor: UIColor, font: UIFont? = nil) -> NSAttributedString {
+public func attributedStringWithBackgroundColor(_ mainString : String, _ strings: [String], bgcolor: UIColor, font: UIFont? = nil) -> NSAttributedString {
     let attributedString = NSMutableAttributedString(string: mainString)
     for string in strings {
         let range = (mainString as NSString).range(of: string)
@@ -271,13 +271,13 @@ func attributedStringWithBackgroundColor(_ mainString : String, _ strings: [Stri
 }
 
 //MARK:- Localization
-func getTranslate(_ str : String) -> String
+public func getTranslate(_ str : String) -> String
 {
     return NSLocalizedString(str, comment: "")
 }
 
 //MARK:- Get Json from file
-func getJsonFromFile(_ file : String) -> [[String : Any]]
+public func getJsonFromFile(_ file : String) -> [[String : Any]]
 {
     if let filePath = Bundle.main.path(forResource: file, ofType: "json"), let data = NSData(contentsOfFile: filePath) {
         do {
@@ -292,7 +292,7 @@ func getJsonFromFile(_ file : String) -> [[String : Any]]
     return [[String : Any]]()
 }
 
-func convertToDictionary(_ text: String) -> [String: Any]? {
+public func convertToDictionary(_ text: String) -> [String: Any]? {
   if let data = text.data(using: .utf8) {
     do {
       return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
@@ -304,14 +304,14 @@ func convertToDictionary(_ text: String) -> [String: Any]? {
 }
 
 //MARK:- Placeholder color
-func setTextFieldPlaceholderColor(_ textField : UITextField, _ color : UIColor)
+public func setTextFieldPlaceholderColor(_ textField : UITextField, _ color : UIColor)
 {
     if textField.placeholder != "" {
         textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: color])
     }
 }
 
-func setupButtonHighlightEffect(_ button : UIButton, _ normalBGColor : UIColor, _ highlightBGColor : UIColor)
+public func setupButtonHighlightEffect(_ button : UIButton, _ normalBGColor : UIColor, _ highlightBGColor : UIColor)
 {
     button.setTitleColor(highlightBGColor, for: .normal)
     button.setTitleColor(normalBGColor, for: .highlighted)
@@ -319,7 +319,7 @@ func setupButtonHighlightEffect(_ button : UIButton, _ normalBGColor : UIColor, 
     button.setBackgroundImage(imageFromColor(color: highlightBGColor), for: .highlighted)
 }
 
-func displayFlotingValue(_ value : Double) -> String
+public func displayFlotingValue(_ value : Double) -> String
 {
     var finalValue = String(format: "%.2f", Float(value))
     if finalValue.contains(".00") {
@@ -331,7 +331,7 @@ func displayFlotingValue(_ value : Double) -> String
     return finalValue
 }
 
-func displayFlotingStar(_ price : Double) -> String
+public func displayFlotingStar(_ price : Double) -> String
 {
     var finalValue = String(format: "%.1f", Float(price))
     if finalValue.contains(".0") {
@@ -340,21 +340,21 @@ func displayFlotingStar(_ price : Double) -> String
     return finalValue
 }
 
-func displayPriceWithCurrency(_ price : Double) -> String {
+public func displayPriceWithCurrency(_ price : Double) -> String {
     return CURRENCY + displayFlotingValue(price)
 }
 
-func displayDiscountPriceWithCurrency(_ price : Double, _ discount : Double) -> String {
+public func displayDiscountPriceWithCurrency(_ price : Double, _ discount : Double) -> String {
     return displayPriceWithCurrency(price - discount)
 }
 
-func getDiscountPrice(_ price : Float, _ discount : Int) -> Float {
+public func getDiscountPrice(_ price : Float, _ discount : Int) -> Float {
     let newPrice = price - (price * Float(discount) / 100)
     return newPrice
 }
 
 //MARK:- Card
-func showCardNumberFormattedStr(_ str:String, isRedacted:Bool = true) -> String{
+public func showCardNumberFormattedStr(_ str:String, isRedacted:Bool = true) -> String{
     
     let tempStr:String = sendDetailByRemovingChar(sendDetailByRemovingChar(str, char:"-"), char: " ")
     var retStr:String = ""
@@ -376,7 +376,7 @@ func showCardNumberFormattedStr(_ str:String, isRedacted:Bool = true) -> String{
     return retStr
 }
 
-func showCardExpDateFormattedStr(_ str:String) -> String{
+public func showCardExpDateFormattedStr(_ str:String) -> String{
     
     let tempStr:String = sendDetailByRemovingChar(str, char:"/")
     var retStr:String = ""
@@ -389,17 +389,17 @@ func showCardExpDateFormattedStr(_ str:String) -> String{
     return retStr
 }
 
-func sendDetailByRemovingChar(_ str:String, char:String = " ") -> String{
+public func sendDetailByRemovingChar(_ str:String, char:String = " ") -> String{
     let regExp :String = char + "\n\t\r"
     return String(str.filter { !(regExp.contains($0))})
 }
 
-func generateCoponCode(_ length: Int) -> String {
+public func generateCoponCode(_ length: Int) -> String {
     let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     return String((0..<length).map{ _ in letters.randomElement()! })
 }
 
-func convertToDictionary(text: String) -> [String: Any]? {
+public func convertToDictionary(text: String) -> [String: Any]? {
     if let data = text.data(using: .utf8) {
         do {
             return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
@@ -418,7 +418,7 @@ public func displayToast(_ message:String)
 
 
 extension UIApplication {
-    class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+    class public func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         
         if let nav = base as? UINavigationController {
             return topViewController(base: nav.visibleViewController)
