@@ -93,7 +93,7 @@ open class UploadImageVC: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
 
-    public func selectedImage(choosenImage : UIImage) {
+    open func selectedImage(choosenImage : UIImage) {
         
     }
     
