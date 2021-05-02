@@ -10,23 +10,23 @@ import Foundation
 
 let ISO_FORMAT = "yyyy-MM-dd'T'HH:mm:ssxxx"
 
-func getCurrentTimeStampValue() -> String
+public func getCurrentTimeStampValue() -> String
 {
     return String(format: "%0.0f", Date().timeIntervalSince1970)
 }
 
-func getTimestampFromDate(date : Date) -> Double
+public func getTimestampFromDate(date : Date) -> Double
 {
     return date.timeIntervalSince1970
 }
 
-func getDateFromTimeStamp(_ timeStemp:Double) -> Date
+public func getDateFromTimeStamp(_ timeStemp:Double) -> Date
 {
     return Date(timeIntervalSince1970: TimeInterval(timeStemp))
 }
 
 //Date to string
-func getDateStringFromDate(date : Date, format : String) -> String
+public func getDateStringFromDate(date : Date, format : String) -> String
 {
     let dateFormatter = DateFormatter()
     dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
@@ -34,7 +34,7 @@ func getDateStringFromDate(date : Date, format : String) -> String
     return dateFormatter.string(from: date)
 }
 
-func getLocalDateStringFromDate(date : Date, format : String) -> String
+public func getLocalDateStringFromDate(date : Date, format : String) -> String
 {
     let dateFormatter = DateFormatter()
     dateFormatter.locale = NSLocale.current
@@ -43,7 +43,7 @@ func getLocalDateStringFromDate(date : Date, format : String) -> String
 }
 
 //String to date
-func getDateFromDateString(date : String, format : String) -> Date
+public func getDateFromDateString(date : String, format : String) -> Date
 {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = format
@@ -52,20 +52,20 @@ func getDateFromDateString(date : String, format : String) -> Date
 }
 
 //MARK: Date difference
-func getDifferenceFromCurrentTime(_ newDate : Date) -> Int
+public func getDifferenceFromCurrentTime(_ newDate : Date) -> Int
 {
     let currentDate : Date = getCurrentDate()
     let interval = currentDate.timeIntervalSince(newDate)
     return Int(interval)
 }
 
-func getCurrentDate() -> Date
+public func getCurrentDate() -> Date
 {
     let currentDate : Date = Date()
     return currentDate
 }
 
-func getDifferenceFromCurrentTimeInHourInDays(_ newDate : Date) -> String
+public func getDifferenceFromCurrentTimeInHourInDays(_ newDate : Date) -> String
 {
     let interval : Int = getDifferenceFromCurrentTime(newDate)
     
@@ -110,7 +110,7 @@ func getDifferenceFromCurrentTimeInHourInDays(_ newDate : Date) -> String
     return timeAgo
 }
 
-func getDifferentTimeAgo(_ newDate : Date) -> String {
+public func getDifferentTimeAgo(_ newDate : Date) -> String {
     let interval : Int = getDifferenceFromCurrentTime(newDate)
     
     let second : Int = interval
@@ -148,7 +148,7 @@ func getDifferentTimeAgo(_ newDate : Date) -> String {
     return timeAgo
 }
 
-func getAgeFromDateOfBirth(_ value : String) -> Int {
+public func getAgeFromDateOfBirth(_ value : String) -> Int {
     var strDate = value
     if strDate.contains("T") {
         strDate = value.components(separatedBy: "T").first!
@@ -158,7 +158,7 @@ func getAgeFromDateOfBirth(_ value : String) -> Int {
     return ageComponent.year ?? 0
 }
 
-func getdayDifferenceFromCurrentDay(_ oldDate : String, format : String) -> String
+public func getdayDifferenceFromCurrentDay(_ oldDate : String, format : String) -> String
 {
     let calendar = NSCalendar.current
     let date1 = getDateFromDateString(date: oldDate, format: format)

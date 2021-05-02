@@ -8,8 +8,7 @@
 
 import UIKit
 
-
-class UploadImageVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+open class UploadImageVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     let imgPicker = UIImagePickerController()
     
