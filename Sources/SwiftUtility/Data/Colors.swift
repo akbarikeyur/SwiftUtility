@@ -8,16 +8,16 @@
 
 import UIKit
 
-var ClearColor = UIColor.clear
-var WhiteColor = UIColor.white
-var DarkTextColor = colorFromHex(hex: "1F1C1C")
-var LightTextColor = colorFromHex(hex: "808080")
-var BlueColor = colorFromHex(hex: "006BB5")
-var BlackColor = UIColor.black
-var DarkBorderColor = colorFromHex(hex: "707070")
-var LightBorderColor = colorFromHex(hex: "EDEDED")
-var RedColor = colorFromHex(hex: "D11313")
-var GreenColor = colorFromHex(hex: "00A869")
+public var ClearColor = UIColor.clear
+public var WhiteColor = UIColor.white
+public var DarkTextColor = colorFromHex(hex: "1F1C1C")
+public var LightTextColor = colorFromHex(hex: "808080")
+public var BlueColor = colorFromHex(hex: "006BB5")
+public var BlackColor = UIColor.black
+public var DarkBorderColor = colorFromHex(hex: "707070")
+public var LightBorderColor = colorFromHex(hex: "EDEDED")
+public var RedColor = colorFromHex(hex: "D11313")
+public var GreenColor = colorFromHex(hex: "00A869")
 
 enum ColorType : Int32 {
     case Clear = 0

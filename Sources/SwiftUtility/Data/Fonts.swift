@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-let APP_REGULAR = "Poppins-Regular"
-let APP_BOLD = "Poppins-Bold"
-let APP_ITALIC = "Poppins-Italic"
-let APP_MEDIUM = "Poppins-Medium"
-let APP_LIGHT = "Poppins-Light"
+public let APP_REGULAR = "Poppins-Regular"
+public let APP_BOLD = "Poppins-Bold"
+public let APP_ITALIC = "Poppins-Italic"
+public let APP_MEDIUM = "Poppins-Medium"
+public let APP_LIGHT = "Poppins-Light"
 
 enum FontType : String {
     case Clear = ""

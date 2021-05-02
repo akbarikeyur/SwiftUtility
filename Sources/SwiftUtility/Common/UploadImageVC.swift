@@ -46,7 +46,7 @@ open class UploadImageVC: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         actionSheet.addAction(cameraButton)
 
-        let galleryButton = UIAlertAction(title: getTranslate("gallry_photo"), style: .default)
+        let galleryButton = UIAlertAction(title: getTranslate("gallery_photo"), style: .default)
         { _ in
             self.onCaptureImageThroughGallery()
         }
