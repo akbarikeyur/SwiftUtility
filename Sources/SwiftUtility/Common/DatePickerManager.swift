@@ -14,7 +14,7 @@ public typealias DatePickerValueIndexCompletion = (_ value: String?, _ index: In
 
 open class DatePickerManager: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    static let shared = DatePickerManager()
+    public static let shared = DatePickerManager()
 
     private typealias PickerCompletionBlock  = (_ cancel: Bool) -> Void
 
