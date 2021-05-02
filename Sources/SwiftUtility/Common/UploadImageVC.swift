@@ -13,7 +13,7 @@ open class UploadImageVC: UIViewController, UIImagePickerControllerDelegate, UIN
 
     let imgPicker = UIImagePickerController()
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 
         self.imgPicker.delegate = self
@@ -97,7 +97,7 @@ open class UploadImageVC: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    open func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imgPicker.dismiss(animated: true, completion: {() -> Void in
         })
         if let choosenImage: UIImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -111,7 +111,7 @@ open class UploadImageVC: UIViewController, UIImagePickerControllerDelegate, UIN
       
     }
 
-    override func didReceiveMemoryWarning() {
+    open override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
