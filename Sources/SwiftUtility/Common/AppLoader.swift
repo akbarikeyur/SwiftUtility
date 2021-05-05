@@ -13,7 +13,7 @@ open class AppLoader : NSObject {
     
     var loader : UIActivityIndicatorView!
     
-    func showLoader()
+    public func showLoader()
     {
         removeLoader()
         DispatchQueue.main.async { [self] in
@@ -27,7 +27,7 @@ open class AppLoader : NSObject {
         }
     }
     
-    func removeLoader()
+    public func removeLoader()
     {
         DispatchQueue.main.async { [self] in
             UIApplication.shared.windows.first?.isUserInteractionEnabled = true
