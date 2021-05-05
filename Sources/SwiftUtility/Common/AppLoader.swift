@@ -17,7 +17,7 @@ open class AppLoader : NSObject {
 public func showLoader()
 {
     removeLoader()
-    DispatchQueue.main.async { [self] in
+    DispatchQueue.main.async {
         let window = UIApplication.shared.windows.first
         window?.isUserInteractionEnabled = false
         AppLoader.shared.loader = UIActivityIndicatorView(frame: CGRect(x: ((window?.frame.size.width)!-50)/2, y: ((window?.frame.size.height)!-50)/2, width: 50, height: 50))
@@ -30,7 +30,7 @@ public func showLoader()
 
 public func removeLoader()
 {
-    DispatchQueue.main.async { [self] in
+    DispatchQueue.main.async {
         UIApplication.shared.windows.first?.isUserInteractionEnabled = true
         if AppLoader.shared.loader == nil {
             return
