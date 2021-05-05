@@ -12,31 +12,31 @@ open class AppLoader : NSObject {
     public static let shared = AppLoader()
     
     var loader : UIActivityIndicatorView!
-}
-
-public func showLoader()
-{
-    removeLoader()
-    DispatchQueue.main.async {
-        let window = UIApplication.shared.windows.first
-        window?.isUserInteractionEnabled = false
-        AppLoader.shared.loader = UIActivityIndicatorView(frame: CGRect(x: ((window?.frame.size.width)!-50)/2, y: ((window?.frame.size.height)!-50)/2, width: 50, height: 50))
-        AppLoader.shared.loader.tintColor = BlueColor
-        window?.addSubview(loader)
-        AppLoader.shared.loader.hidesWhenStopped = true
-        AppLoader.shared.loader.startAnimating()
-    }
-}
-
-public func removeLoader()
-{
-    DispatchQueue.main.async {
-        UIApplication.shared.windows.first?.isUserInteractionEnabled = true
-        if AppLoader.shared.loader == nil {
-            return
+    
+    public func showLoader()
+    {
+        removeLoader()
+        DispatchQueue.main.async { [self] in
+            let window = UIApplication.shared.windows.first
+            window?.isUserInteractionEnabled = false
+            loader = UIActivityIndicatorView(frame: CGRect(x: ((window?.frame.size.width)!-50)/2, y: ((window?.frame.size.height)!-50)/2, width: 50, height: 50))
+            loader.tintColor = BlueColor
+            window?.addSubview(loader)
+            loader.hidesWhenStopped = true
+            loader.startAnimating()
         }
-        AppLoader.shared.loader.stopAnimating()
-        AppLoader.shared.loader.removeFromSuperview()
-        AppLoader.shared.loader = nil
+    }
+    
+    public func removeLoader()
+    {
+        DispatchQueue.main.async { [self] in
+            UIApplication.shared.windows.first?.isUserInteractionEnabled = true
+            if loader == nil {
+                return
+            }
+            loader.stopAnimating()
+            loader.removeFromSuperview()
+            loader = nil
+        }
     }
 }
