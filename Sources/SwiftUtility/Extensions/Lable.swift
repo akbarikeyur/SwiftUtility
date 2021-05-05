@@ -1,10 +1,11 @@
 //
 //  Lable.swift
-//  BeatBox
+//  SwiftUtility
 //
-//  Created by Keyur on 15/06/19.
-//  Copyright © 2019 PC. All rights reserved.
+//  Created by Keyur.
+//  Copyright © 2020 Keyur. All rights reserved.
 //
+
 
 import UIKit
 

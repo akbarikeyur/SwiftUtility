@@ -1,11 +1,10 @@
 //
 //  DatePickerManager.swift
-//  Cozy Up
+//  SwiftUtility
 //
-//  Created by Keyur on 15/10/18.
-//  Copyright © 2018 Keyur. All rights reserved.
+//  Created by Keyur.
+//  Copyright © 2020 Keyur. All rights reserved.
 //
-
 import UIKit
 
 public typealias DatePickerCompletion = (_ cancel: Bool) -> Void

@@ -1,10 +1,11 @@
 //
 //  FloatRatingView.swift
-//  Rating Demo
+//  SwiftUtility
 //
-//  Created by Glen Yi on 2014-09-05.
-//  Copyright (c) 2014 On The Pursuit. All rights reserved.
+//  Created by Keyur.
+//  Copyright © 2020 Keyur. All rights reserved.
 //
+
 
 import UIKit
 

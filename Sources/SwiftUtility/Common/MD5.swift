@@ -1,10 +1,12 @@
 /*
  * A JavaScript implementation of the RSA Data Security, Inc. MD5 Message
  * Digest Algorithm, as defined in RFC 1321.
- * Version 2.2 Copyright (C) Paul Johnston 1999 - 2009
- * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
- * Distributed under the BSD License
- * See http://pajhome.org.uk/crypt/md5 for more info.
+ //  SwiftUtility
+ //
+ //  Created by Keyur.
+ //  Copyright © 2020 Keyur. All rights reserved.
+ //
+
  */
 
 /**

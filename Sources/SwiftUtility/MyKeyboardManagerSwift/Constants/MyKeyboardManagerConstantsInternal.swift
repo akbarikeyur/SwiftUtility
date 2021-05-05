@@ -1,5 +1,5 @@
 //
-//  SHA1.swift
+//  MyKeyboardManagerConstantsInternal.swift
 //  SwiftUtility
 //
 //  Created by Keyur.
@@ -8,9 +8,3 @@
 
 
 import Foundation
-
-// MARK: - Public
-
-func SHA1(_ input: String) -> String {
-  return input
-}

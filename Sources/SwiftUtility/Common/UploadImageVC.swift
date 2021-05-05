@@ -1,10 +1,11 @@
 //
 //  UploadImageVC.swift
-//  HearBK
+//  SwiftUtility
 //
-//  Created by Amisha on 24/10/18.
-//  Copyright © 2018 PC. All rights reserved.
+//  Created by Keyur.
+//  Copyright © 2020 Keyur. All rights reserved.
 //
+
 
 import UIKit
 

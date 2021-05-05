@@ -1,30 +1,16 @@
 //
-//  IQKeyboardReturnKeyHandler.swift
-// https://github.com/hackiftekhar/IQKeyboardManager
-// Copyright (c) 2013-16 Iftekhar Qurashi.
+//  MyKeyboardReturnKeyHandler.swift
+//  SwiftUtility
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+//  Created by Keyur.
+//  Copyright © 2020 Keyur. All rights reserved.
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
+
 
 import Foundation
 import UIKit
 
-private class IQTextFieldViewInfoModal: NSObject {
+private class MyTextFieldViewInfoModal: NSObject {
 
     fileprivate weak var textFieldDelegate: UITextFieldDelegate?
     fileprivate weak var textViewDelegate: UITextViewDelegate?
@@ -42,7 +28,7 @@ private class IQTextFieldViewInfoModal: NSObject {
 /**
 Manages the return key to work like next/done in a view hierarchy.
 */
-public class IQKeyboardReturnKeyHandler: NSObject, UITextFieldDelegate, UITextViewDelegate {
+public class MyKeyboardReturnKeyHandler: NSObject, UITextFieldDelegate, UITextViewDelegate {
 
     ///---------------
     /// MARK: Settings
@@ -109,12 +95,12 @@ public class IQKeyboardReturnKeyHandler: NSObject, UITextFieldDelegate, UITextVi
     ///------------------------
     /// MARK: Private variables
     ///------------------------
-    private var textFieldInfoCache          =   [IQTextFieldViewInfoModal]()
+    private var textFieldInfoCache          =   [MyTextFieldViewInfoModal]()
     
     ///------------------------
     /// MARK: Private Functions
     ///------------------------
-    private func textFieldViewCachedInfo(_ textField: UIView) -> IQTextFieldViewInfoModal? {
+    private func textFieldViewCachedInfo(_ textField: UIView) -> MyTextFieldViewInfoModal? {
         
         for modal in textFieldInfoCache {
             
@@ -133,7 +119,7 @@ public class IQKeyboardReturnKeyHandler: NSObject, UITextFieldDelegate, UITextVi
         var superConsideredView: UIView?
         
         //If find any consider responderView in it's upper hierarchy then will get deepResponderView. (Bug ID: #347)
-        for disabledClass in IQKeyboardManager.shared.toolbarPreviousNextAllowedClasses {
+        for disabledClass in MyKeyboardManager.shared.toolbarPreviousNextAllowedClasses {
             
             superConsideredView = view.superviewOfClassType(disabledClass)
             
@@ -152,7 +138,7 @@ public class IQKeyboardReturnKeyHandler: NSObject, UITextFieldDelegate, UITextVi
             textFields = view.responderSiblings()
             
             //Sorting textFields according to behaviour
-            switch IQKeyboardManager.shared.toolbarManageBehaviour {
+            switch MyKeyboardManager.shared.toolbarManageBehaviour {
                 //If needs to sort it by tag
             case .byTag:        textFields = textFields.sortedArrayByTag()
                 //If needs to sort it by Position
@@ -186,7 +172,7 @@ public class IQKeyboardReturnKeyHandler: NSObject, UITextFieldDelegate, UITextVi
     */
     @objc public func addTextFieldView(_ view: UIView) {
         
-        let modal = IQTextFieldViewInfoModal(textFieldView: view, textFieldDelegate: nil, textViewDelegate: nil)
+        let modal = MyTextFieldViewInfoModal(textFieldView: view, textFieldDelegate: nil, textViewDelegate: nil)
         
         if let textField = view as? UITextField {
             
@@ -265,7 +251,7 @@ public class IQKeyboardReturnKeyHandler: NSObject, UITextFieldDelegate, UITextVi
         var superConsideredView: UIView?
         
         //If find any consider responderView in it's upper hierarchy then will get deepResponderView. (Bug ID: #347)
-        for disabledClass in IQKeyboardManager.shared.toolbarPreviousNextAllowedClasses {
+        for disabledClass in MyKeyboardManager.shared.toolbarPreviousNextAllowedClasses {
             
             superConsideredView = view.superviewOfClassType(disabledClass)
             
@@ -284,7 +270,7 @@ public class IQKeyboardReturnKeyHandler: NSObject, UITextFieldDelegate, UITextVi
             textFields = view.responderSiblings()
             
             //Sorting textFields according to behaviour
-            switch IQKeyboardManager.shared.toolbarManageBehaviour {
+            switch MyKeyboardManager.shared.toolbarManageBehaviour {
                 //If needs to sort it by tag
             case .byTag:        textFields = textFields.sortedArrayByTag()
                 //If needs to sort it by Position

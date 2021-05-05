@@ -1,25 +1,11 @@
 //
-//  IQUIView+Hierarchy.swift
-// https://github.com/hackiftekhar/IQKeyboardManager
-// Copyright (c) 2013-16 Iftekhar Qurashi.
+//  MyUIView+Hierarchy.swift
+//  SwiftUtility
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+//  Created by Keyur.
+//  Copyright © 2020 Keyur. All rights reserved.
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
+
 
 import UIKit
 
@@ -133,7 +119,7 @@ UIView hierarchy category.
             parentContainerViewController = matchController
         }
         
-        let finalController = parentContainerViewController?.parentIQContainerViewController() ?? parentContainerViewController
+        let finalController = parentContainerViewController?.parentMyContainerViewController() ?? parentContainerViewController
         
         return finalController
 
@@ -166,7 +152,7 @@ UIView hierarchy category.
 
                     //  If it's not UITableViewWrapperView class, this is internal class which is actually manage in UITableview. The speciality of this class is that it's superview is UITableView.
                     //  If it's not UITableViewCellScrollView class, this is internal class which is actually manage in UITableviewCell. The speciality of this class is that it's superview is UITableViewCell.
-                    //If it's not _UIQueuingScrollView class, actually we validate for _ prefix which usually used by Apple internal classes
+                    //If it's not _UMyueuingScrollView class, actually we validate for _ prefix which usually used by Apple internal classes
                     if unwrappedSuperView.superview?.isKind(of: UITableView.self) == false &&
                         unwrappedSuperView.superview?.isKind(of: UITableViewCell.self) == false &&
                         classNameString.hasPrefix("_") == false {
@@ -198,7 +184,7 @@ UIView hierarchy category.
             
             for textField in siblings {
                 
-                if (textField == self || textField.ignoreSwitchingByNextPrevious == false) && textField.IQcanBecomeFirstResponder() == true {
+                if (textField == self || textField.ignoreSwitchingByNextPrevious == false) && textField.MycanBecomeFirstResponder() == true {
                     tempTextFields.append(textField)
                 }
             }
@@ -217,7 +203,7 @@ UIView hierarchy category.
         
         for textField in subviews {
             
-            if (textField == self || textField.ignoreSwitchingByNextPrevious == false) && textField.IQcanBecomeFirstResponder() == true {
+            if (textField == self || textField.ignoreSwitchingByNextPrevious == false) && textField.MycanBecomeFirstResponder() == true {
                 textfields.append(textField)
             }
             //Sometimes there are hidden or disabled views and textField inside them still recorded, so we added some more validations here (Bug ID: #458)
@@ -243,24 +229,24 @@ UIView hierarchy category.
         })
     }
     
-    private func IQcanBecomeFirstResponder() -> Bool {
+    private func MycanBecomeFirstResponder() -> Bool {
         
-        var IQcanBecomeFirstResponder = false
+        var MycanBecomeFirstResponder = false
         
         if self.conforms(to: UITextInput.self) {
             //  Setting toolbar to keyboard.
             if let textView = self as? UITextView {
-                IQcanBecomeFirstResponder = textView.isEditable
+                MycanBecomeFirstResponder = textView.isEditable
             } else if let textField = self as? UITextField {
-                IQcanBecomeFirstResponder = textField.isEnabled
+                MycanBecomeFirstResponder = textField.isEnabled
             }
         }
         
-        if IQcanBecomeFirstResponder == true {
-            IQcanBecomeFirstResponder = isUserInteractionEnabled == true && isHidden == false && alpha != 0.0 && isAlertViewTextField() == false && textFieldSearchBar() == nil
+        if MycanBecomeFirstResponder == true {
+            MycanBecomeFirstResponder = isUserInteractionEnabled == true && isHidden == false && alpha != 0.0 && isAlertViewTextField() == false && textFieldSearchBar() == nil
         }
 
-        return IQcanBecomeFirstResponder
+        return MycanBecomeFirstResponder
     }
 
     ///-------------------------
@@ -324,7 +310,7 @@ UIView hierarchy category.
 
 extension NSObject {
     
-    internal func _IQDescription() -> String {
+    internal func _MyDescription() -> String {
         return "<\(self) \(Unmanaged.passUnretained(self).toOpaque())>"
     }
 }

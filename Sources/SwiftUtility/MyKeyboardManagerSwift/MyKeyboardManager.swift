@@ -1,25 +1,11 @@
 //
-//  IQKeyboardManager.swift
-// https://github.com/hackiftekhar/IQKeyboardManager
-// Copyright (c) 2013-16 Iftekhar Qurashi.
+//  MyKeyboardManager.swift
+//  SwiftUtility
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+//  Created by Keyur.
+//  Copyright © 2020 Keyur. All rights reserved.
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
+
 
 import Foundation
 import CoreGraphics
@@ -27,29 +13,29 @@ import UIKit
 import QuartzCore
 
 ///---------------------
-/// MARK: IQToolbar tags
+/// MARK: MyToolbar tags
 ///---------------------
 
 /**
 Codeless drop-in universal library allows to prevent issues of keyboard sliding up and cover UITextField/UITextView. Neither need to write any code nor any setup required and much more. A generic version of KeyboardManagement. https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html
 */
 
-@objc public class IQKeyboardManager: NSObject, UIGestureRecognizerDelegate {
+@objc public class MyKeyboardManager: NSObject, UIGestureRecognizerDelegate {
     
     /**
     Default tag for toolbar with Done button   -1002.
     */
-    private static let  kIQDoneButtonToolbarTag         =   -1002
+    private static let  kMyDoneButtonToolbarTag         =   -1002
     
     /**
     Default tag for toolbar with Previous/Next buttons -1005.
     */
-    private static let  kIQPreviousNextButtonToolbarTag =   -1005
+    private static let  kMyPreviousNextButtonToolbarTag =   -1005
 
     /**
      Invalid point value.
      */
-    private static let  kIQCGPointInvalid = CGPoint.init(x: CGFloat.greatestFiniteMagnitude, y: CGFloat.greatestFiniteMagnitude)
+    private static let  kMyCGPointInvalid = CGPoint.init(x: CGFloat.greatestFiniteMagnitude, y: CGFloat.greatestFiniteMagnitude)
 
     ///---------------------------
     ///  MARK: UIKeyboard handling
@@ -173,14 +159,14 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
     /**
     Returns the default singleton instance.
     */
-    @objc public static let shared = IQKeyboardManager()
+    @objc public static let shared = MyKeyboardManager()
     
     ///-------------------------
-    /// MARK: IQToolbar handling
+    /// MARK: MyToolbar handling
     ///-------------------------
     
     /**
-    Automatic add the IQToolbar functionality. Default is YES.
+    Automatic add the MyToolbar functionality. Default is YES.
     */
     @objc public var enableAutoToolbar = true {
         
@@ -246,18 +232,18 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
 
     /**
      /**
-     IQAutoToolbarBySubviews:   Creates Toolbar according to subview's hirarchy of Textfield's in view.
-     IQAutoToolbarByTag:        Creates Toolbar according to tag property of TextField's.
-     IQAutoToolbarByPosition:   Creates Toolbar according to the y,x position of textField in it's superview coordinate.
+     MyAutoToolbarBySubviews:   Creates Toolbar according to subview's hirarchy of Textfield's in view.
+     MyAutoToolbarByTag:        Creates Toolbar according to tag property of TextField's.
+     MyAutoToolbarByPosition:   Creates Toolbar according to the y,x position of textField in it's superview coordinate.
      
-     Default is IQAutoToolbarBySubviews.
+     Default is MyAutoToolbarBySubviews.
      */
-    AutoToolbar managing behaviour. Default is IQAutoToolbarBySubviews.
+    AutoToolbar managing behaviour. Default is MyAutoToolbarBySubviews.
     */
-    @objc public var toolbarManageBehaviour = IQAutoToolbarManageBehaviour.bySubviews
+    @objc public var toolbarManageBehaviour = MyAutoToolbarManageBehaviour.bySubviews
 
     /**
-    If YES, then uses textField's tintColor property for IQToolbar, otherwise tint color is default. Default is NO.
+    If YES, then uses textField's tintColor property for MyToolbar, otherwise tint color is default. Default is NO.
     */
     @objc public var shouldToolbarUsesTextFieldTintColor = false
     
@@ -272,11 +258,11 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
     @objc public var toolbarBarTintColor: UIColor?
 
     /**
-     IQPreviousNextDisplayModeDefault:      Show NextPrevious when there are more than 1 textField otherwise hide.
-     IQPreviousNextDisplayModeAlwaysHide:   Do not show NextPrevious buttons in any case.
-     IQPreviousNextDisplayModeAlwaysShow:   Always show nextPrevious buttons, if there are more than 1 textField then both buttons will be visible but will be shown as disabled.
+     MyPreviousNextDisplayModeDefault:      Show NextPrevious when there are more than 1 textField otherwise hide.
+     MyPreviousNextDisplayModeAlwaysHide:   Do not show NextPrevious buttons in any case.
+     MyPreviousNextDisplayModeAlwaysShow:   Always show nextPrevious buttons, if there are more than 1 textField then both buttons will be visible but will be shown as disabled.
      */
-    @objc public var previousNextDisplayMode = IQPreviousNextDisplayMode.default
+    @objc public var previousNextDisplayMode = MyPreviousNextDisplayMode.default
 
     /**
      Toolbar previous/next/done button icon, If nothing is provided then check toolbarDoneBarButtonItemText to draw done button.
@@ -296,7 +282,7 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
     @objc public var toolbarDoneBarButtonItemAccessibilityLabel: String?
 
     /**
-    If YES, then it add the textField's placeholder text on IQToolbar. Default is YES.
+    If YES, then it add the textField's placeholder text on MyToolbar. Default is YES.
     */
     @objc public var shouldShowToolbarPlaceholder = true
 
@@ -565,7 +551,7 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
     }
     
     /**	previousAction. */
-    @objc internal func previousAction (_ barButton: IQBarButtonItem) {
+    @objc internal func previousAction (_ barButton: MyBarButtonItem) {
         
         //If user wants to play input Click sound.
         if shouldPlayInputClicks == true {
@@ -597,7 +583,7 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
     }
     
     /**	nextAction. */
-    @objc internal func nextAction (_ barButton: IQBarButtonItem) {
+    @objc internal func nextAction (_ barButton: MyBarButtonItem) {
         
         //If user wants to play input Click sound.
         if shouldPlayInputClicks == true {
@@ -629,7 +615,7 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
     }
     
     /**	doneAction. Resigning current textField. */
-    @objc internal func doneAction (_ barButton: IQBarButtonItem) {
+    @objc internal func doneAction (_ barButton: MyBarButtonItem) {
         
         //If user wants to play input Click sound.
         if shouldPlayInputClicks == true {
@@ -783,11 +769,11 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
     private weak var    _textFieldView: UIView?
     
     /** To save rootViewController.view.frame.origin. */
-    private var         _topViewBeginOrigin = IQKeyboardManager.kIQCGPointInvalid
+    private var         _topViewBeginOrigin = MyKeyboardManager.kMyCGPointInvalid
 
     /** To overcome with popGestureRecognizer issue Bug ID: #1361 */
     private weak var    _rootViewControllerWhilePopGestureRecognizerActive: UIViewController?
-    private var         _topViewBeginOriginWhilePopGestureRecognizerActive = IQKeyboardManager.kIQCGPointInvalid
+    private var         _topViewBeginOriginWhilePopGestureRecognizerActive = MyKeyboardManager.kMyCGPointInvalid
 
     /** To save rootViewController */
     private weak var    _rootViewController: UIViewController?
@@ -857,7 +843,7 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
         //Creating gesture for @shouldResignOnTouchOutside. (Enhancement ID: #14)
         resignFirstResponderGesture.isEnabled = shouldResignOnTouchOutside
         
-        //Loading IQToolbar, IQTitleBarButtonItem, IQBarButtonItem to fix first time keyboard appearance delay (Bug ID: #550)
+        //Loading MyToolbar, MyTitleBarButtonItem, MyBarButtonItem to fix first time keyboard appearance delay (Bug ID: #550)
         //If you experience exception breakpoint issue at below line then try these solutions https://stackoverflow.com/questions/27375640/all-exception-break-point-is-stopping-for-no-reason-on-simulator
         let textField = UITextField()
         textField.addDoneOnKeyboardWithTarget(nil, action: #selector(self.doneAction(_:)))
@@ -869,18 +855,18 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
         disabledTouchResignedClasses.append(UIAlertController.self)
         toolbarPreviousNextAllowedClasses.append(UITableView.self)
         toolbarPreviousNextAllowedClasses.append(UICollectionView.self)
-        toolbarPreviousNextAllowedClasses.append(IQPreviousNextView.self)
+        toolbarPreviousNextAllowedClasses.append(MyPreviousNextView.self)
         touchResignedGestureIgnoreClasses.append(UIControl.self)
         touchResignedGestureIgnoreClasses.append(UINavigationBar.self)
     }
     
-    /** Override +load method to enable KeyboardManager when class loader load IQKeyboardManager. Enabling when app starts (No need to write any code) */
+    /** Override +load method to enable KeyboardManager when class loader load MyKeyboardManager. Enabling when app starts (No need to write any code) */
     /** It doesn't work from Swift 1.2 */
 //    override public class func load() {
 //        super.load()
 //        
-//        //Enabling IQKeyboardManager.
-//        IQKeyboardManager.shared.enable = true
+//        //Enabling MyKeyboardManager.
+//        MyKeyboardManager.shared.enable = true
 //    }
     
     deinit {
@@ -969,7 +955,7 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
                 specialKeyboardDistanceFromTextField = searchBar.keyboardDistanceFromTextField
             }
             
-            let newKeyboardDistanceFromTextField = (specialKeyboardDistanceFromTextField == kIQUseDefaultKeyboardDistance) ? keyboardDistanceFromTextField : specialKeyboardDistanceFromTextField
+            let newKeyboardDistanceFromTextField = (specialKeyboardDistanceFromTextField == kMyUseDefaultKeyboardDistance) ? keyboardDistanceFromTextField : specialKeyboardDistanceFromTextField
 
             var kbSize = _kbFrame.size
 
@@ -1446,7 +1432,7 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
         _privateHasPendingAdjustRequest = false
         
         //  Setting rootViewController frame to it's original position. //  (Bug ID: #18)
-        if _topViewBeginOrigin.equalTo(IQKeyboardManager.kIQCGPointInvalid) == false {
+        if _topViewBeginOrigin.equalTo(MyKeyboardManager.kMyCGPointInvalid) == false {
             
             if let rootViewController = _rootViewController {
                 
@@ -1491,7 +1477,7 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
 
         if privateIsEnabled() == true {
             if _privateIsKeyboardShowing == true,
-                _topViewBeginOrigin.equalTo(IQKeyboardManager.kIQCGPointInvalid) == false,
+                _topViewBeginOrigin.equalTo(MyKeyboardManager.kMyCGPointInvalid) == false,
                 let textFieldView = _textFieldView,
                 textFieldView.isAlertViewTextField() == false {
                 optimizedAdjustPosition()
@@ -1553,7 +1539,7 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
 
         if privateIsEnabled() == false {
             restorePosition()
-            _topViewBeginOrigin = IQKeyboardManager.kIQCGPointInvalid
+            _topViewBeginOrigin = MyKeyboardManager.kMyCGPointInvalid
             return
         }
         
@@ -1561,7 +1547,7 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
         showLog("****** \(#function) started ******", indentation: 1)
 
         //  (Bug ID: #5)
-        if let textFieldView = _textFieldView, _topViewBeginOrigin.equalTo(IQKeyboardManager.kIQCGPointInvalid) == true {
+        if let textFieldView = _textFieldView, _topViewBeginOrigin.equalTo(MyKeyboardManager.kMyCGPointInvalid) == true {
             
             //  keyboard is not showing(At the beginning only). We should save rootViewRect.
             _rootViewController = textFieldView.parentContainerViewController()
@@ -1574,7 +1560,7 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
                 }
 
                 _rootViewControllerWhilePopGestureRecognizerActive = nil
-                _topViewBeginOriginWhilePopGestureRecognizerActive = IQKeyboardManager.kIQCGPointInvalid
+                _topViewBeginOriginWhilePopGestureRecognizerActive = MyKeyboardManager.kMyCGPointInvalid
                 
                 self.showLog("Saving \(controller) beginning origin: \(self._topViewBeginOrigin)")
             }
@@ -1741,7 +1727,7 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
         let startTime = CACurrentMediaTime()
         showLog("****** \(#function) started ******", indentation: 1)
         
-        _topViewBeginOrigin = IQKeyboardManager.kIQCGPointInvalid
+        _topViewBeginOrigin = MyKeyboardManager.kMyCGPointInvalid
         
         _kbFrame = CGRect.zero
 
@@ -1805,9 +1791,9 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
 
         if privateIsEnabled() == false {
             restorePosition()
-            _topViewBeginOrigin = IQKeyboardManager.kIQCGPointInvalid
+            _topViewBeginOrigin = MyKeyboardManager.kMyCGPointInvalid
         } else {
-            if _topViewBeginOrigin.equalTo(IQKeyboardManager.kIQCGPointInvalid) == true {    //  (Bug ID: #5)
+            if _topViewBeginOrigin.equalTo(MyKeyboardManager.kMyCGPointInvalid) == true {    //  (Bug ID: #5)
                 
                 _rootViewController = _textFieldView?.parentContainerViewController()
 
@@ -1820,7 +1806,7 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
                     }
                     
                     _rootViewControllerWhilePopGestureRecognizerActive = nil
-                    _topViewBeginOriginWhilePopGestureRecognizerActive = IQKeyboardManager.kIQCGPointInvalid
+                    _topViewBeginOriginWhilePopGestureRecognizerActive = MyKeyboardManager.kMyCGPointInvalid
 
                     self.showLog("Saving \(controller) beginning origin: \(self._topViewBeginOrigin)")
                 }
@@ -1965,13 +1951,13 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
                 //Sorting textFields according to behaviour
                 switch toolbarManageBehaviour {
                     //If autoToolbar behaviour is bySubviews, then returning it.
-                case IQAutoToolbarManageBehaviour.bySubviews:   return textFields
+                case MyAutoToolbarManageBehaviour.bySubviews:   return textFields
                     
                     //If autoToolbar behaviour is by tag, then sorting it according to tag property.
-                case IQAutoToolbarManageBehaviour.byTag:    return textFields.sortedArrayByTag()
+                case MyAutoToolbarManageBehaviour.byTag:    return textFields.sortedArrayByTag()
                     
                     //If autoToolbar behaviour is by tag, then sorting it according to tag property.
-                case IQAutoToolbarManageBehaviour.byPosition:    return textFields.sortedArrayByPosition()
+                case MyAutoToolbarManageBehaviour.byPosition:    return textFields.sortedArrayByPosition()
                 }
             } else {
                 return nil
@@ -1996,17 +1982,17 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
                 if textField.responds(to: #selector(setter: UITextField.inputAccessoryView)) {
                     
                     if textField.inputAccessoryView == nil ||
-                        textField.inputAccessoryView?.tag == IQKeyboardManager.kIQPreviousNextButtonToolbarTag ||
-                        textField.inputAccessoryView?.tag == IQKeyboardManager.kIQDoneButtonToolbarTag {
+                        textField.inputAccessoryView?.tag == MyKeyboardManager.kMyPreviousNextButtonToolbarTag ||
+                        textField.inputAccessoryView?.tag == MyKeyboardManager.kMyDoneButtonToolbarTag {
                         
-                        let rightConfiguration: IQBarButtonItemConfiguration
+                        let rightConfiguration: MyBarButtonItemConfiguration
                         
                         if let doneBarButtonItemImage = toolbarDoneBarButtonItemImage {
-                            rightConfiguration = IQBarButtonItemConfiguration(image: doneBarButtonItemImage, action: #selector(self.doneAction(_:)))
+                            rightConfiguration = MyBarButtonItemConfiguration(image: doneBarButtonItemImage, action: #selector(self.doneAction(_:)))
                         } else if let doneBarButtonItemText = toolbarDoneBarButtonItemText {
-                            rightConfiguration = IQBarButtonItemConfiguration(title: doneBarButtonItemText, action: #selector(self.doneAction(_:)))
+                            rightConfiguration = MyBarButtonItemConfiguration(title: doneBarButtonItemText, action: #selector(self.doneAction(_:)))
                         } else {
-                            rightConfiguration = IQBarButtonItemConfiguration(barButtonSystemItem: .done, action: #selector(self.doneAction(_:)))
+                            rightConfiguration = MyBarButtonItemConfiguration(barButtonSystemItem: .done, action: #selector(self.doneAction(_:)))
                         }
                         rightConfiguration.accessibilityLabel = toolbarDoneBarButtonItemAccessibilityLabel ?? "Done"
                         
@@ -2015,35 +2001,35 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
                             
                             textField.addKeyboardToolbarWithTarget(target: self, titleText: (shouldShowToolbarPlaceholder ? textField.drawingToolbarPlaceholder: nil), rightBarButtonConfiguration: rightConfiguration, previousBarButtonConfiguration: nil, nextBarButtonConfiguration: nil)
 
-                            textField.inputAccessoryView?.tag = IQKeyboardManager.kIQDoneButtonToolbarTag //  (Bug ID: #78)
+                            textField.inputAccessoryView?.tag = MyKeyboardManager.kMyDoneButtonToolbarTag //  (Bug ID: #78)
                             
                         } else if previousNextDisplayMode == .default || previousNextDisplayMode == .alwaysShow {
                             
-                            let prevConfiguration: IQBarButtonItemConfiguration
+                            let prevConfiguration: MyBarButtonItemConfiguration
                             
                             if let doneBarButtonItemImage = toolbarPreviousBarButtonItemImage {
-                                prevConfiguration = IQBarButtonItemConfiguration(image: doneBarButtonItemImage, action: #selector(self.previousAction(_:)))
+                                prevConfiguration = MyBarButtonItemConfiguration(image: doneBarButtonItemImage, action: #selector(self.previousAction(_:)))
                             } else if let doneBarButtonItemText = toolbarPreviousBarButtonItemText {
-                                prevConfiguration = IQBarButtonItemConfiguration(title: doneBarButtonItemText, action: #selector(self.previousAction(_:)))
+                                prevConfiguration = MyBarButtonItemConfiguration(title: doneBarButtonItemText, action: #selector(self.previousAction(_:)))
                             } else {
-                                prevConfiguration = IQBarButtonItemConfiguration(image: (UIImage.keyboardPreviousImage() ?? UIImage()), action: #selector(self.previousAction(_:)))
+                                prevConfiguration = MyBarButtonItemConfiguration(image: (UIImage.keyboardPreviousImage() ?? UIImage()), action: #selector(self.previousAction(_:)))
                             }
                             prevConfiguration.accessibilityLabel = toolbarPreviousBarButtonItemAccessibilityLabel ?? "Previous"
 
-                            let nextConfiguration: IQBarButtonItemConfiguration
+                            let nextConfiguration: MyBarButtonItemConfiguration
                             
                             if let doneBarButtonItemImage = toolbarNextBarButtonItemImage {
-                                nextConfiguration = IQBarButtonItemConfiguration(image: doneBarButtonItemImage, action: #selector(self.nextAction(_:)))
+                                nextConfiguration = MyBarButtonItemConfiguration(image: doneBarButtonItemImage, action: #selector(self.nextAction(_:)))
                             } else if let doneBarButtonItemText = toolbarNextBarButtonItemText {
-                                nextConfiguration = IQBarButtonItemConfiguration(title: doneBarButtonItemText, action: #selector(self.nextAction(_:)))
+                                nextConfiguration = MyBarButtonItemConfiguration(title: doneBarButtonItemText, action: #selector(self.nextAction(_:)))
                             } else {
-                                nextConfiguration = IQBarButtonItemConfiguration(image: (UIImage.keyboardNextImage() ?? UIImage()), action: #selector(self.nextAction(_:)))
+                                nextConfiguration = MyBarButtonItemConfiguration(image: (UIImage.keyboardNextImage() ?? UIImage()), action: #selector(self.nextAction(_:)))
                             }
                             nextConfiguration.accessibilityLabel = toolbarNextBarButtonItemAccessibilityLabel ?? "Next"
 
                             textField.addKeyboardToolbarWithTarget(target: self, titleText: (shouldShowToolbarPlaceholder ? textField.drawingToolbarPlaceholder: nil), rightBarButtonConfiguration: rightConfiguration, previousBarButtonConfiguration: prevConfiguration, nextBarButtonConfiguration: nextConfiguration)
 
-                            textField.inputAccessoryView?.tag = IQKeyboardManager.kIQPreviousNextButtonToolbarTag //  (Bug ID: #78)
+                            textField.inputAccessoryView?.tag = MyKeyboardManager.kMyPreviousNextButtonToolbarTag //  (Bug ID: #78)
                         }
 
                         let toolbar = textField.keyboardToolbar
@@ -2128,7 +2114,7 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
         showLog("****** \(#function) ended: \(elapsedTime) seconds ******", indentation: -1)
     }
     
-    /** Remove any toolbar if it is IQToolbar. */
+    /** Remove any toolbar if it is MyToolbar. */
     private func removeToolbarIfRequired() {    //  (Bug ID: #18)
         
         let startTime = CACurrentMediaTime()
@@ -2141,11 +2127,11 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
 
             for view in siblings {
                 
-                if let toolbar = view.inputAccessoryView as? IQToolbar {
+                if let toolbar = view.inputAccessoryView as? MyToolbar {
 
                     //setInputAccessoryView: check   (Bug ID: #307)
                     if view.responds(to: #selector(setter: UITextField.inputAccessoryView)) &&
-                        (toolbar.tag == IQKeyboardManager.kIQDoneButtonToolbarTag || toolbar.tag == IQKeyboardManager.kIQPreviousNextButtonToolbarTag) {
+                        (toolbar.tag == MyKeyboardManager.kMyDoneButtonToolbarTag || toolbar.tag == MyKeyboardManager.kMyPreviousNextButtonToolbarTag) {
                         
                         if let textField = view as? UITextField {
                             textField.inputAccessoryView = nil
@@ -2287,7 +2273,7 @@ Codeless drop-in universal library allows to prevent issues of keyboard sliding 
 
         if enableDebugging {
 
-            var preLog = "IQKeyboardManager"
+            var preLog = "MyKeyboardManager"
 
             for _ in 0 ... Static.indentation {
                 preLog += "|\t"

@@ -1,30 +1,16 @@
 //
-//  IQToolbar.swift
-// https://github.com/hackiftekhar/IQKeyboardManager
-// Copyright (c) 2013-16 Iftekhar Qurashi.
+//  MyToolbar.swift
+//  SwiftUtility
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+//  Created by Keyur.
+//  Copyright © 2020 Keyur. All rights reserved.
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
+
 
 import UIKit
 
-/** @abstract   IQToolbar for IQKeyboardManager.    */
-open class IQToolbar: UIToolbar, UIInputViewAudioFeedback {
+/** @abstract   MyToolbar for MyKeyboardManager.    */
+open class MyToolbar: UIToolbar, UIInputViewAudioFeedback {
 
     private static var _classInitialize: Void = classInitialize()
     
@@ -49,11 +35,11 @@ open class IQToolbar: UIToolbar, UIInputViewAudioFeedback {
     /**
      Previous bar button of toolbar.
      */
-    private var privatePreviousBarButton: IQBarButtonItem?
-    @objc open var previousBarButton: IQBarButtonItem {
+    private var privatePreviousBarButton: MyBarButtonItem?
+    @objc open var previousBarButton: MyBarButtonItem {
         get {
             if privatePreviousBarButton == nil {
-                privatePreviousBarButton = IQBarButtonItem(image: nil, style: .plain, target: nil, action: nil)
+                privatePreviousBarButton = MyBarButtonItem(image: nil, style: .plain, target: nil, action: nil)
             }
             return privatePreviousBarButton!
         }
@@ -66,11 +52,11 @@ open class IQToolbar: UIToolbar, UIInputViewAudioFeedback {
     /**
      Next bar button of toolbar.
      */
-    private var privateNextBarButton: IQBarButtonItem?
-    @objc open var nextBarButton: IQBarButtonItem {
+    private var privateNextBarButton: MyBarButtonItem?
+    @objc open var nextBarButton: MyBarButtonItem {
         get {
             if privateNextBarButton == nil {
-                privateNextBarButton = IQBarButtonItem(image: nil, style: .plain, target: nil, action: nil)
+                privateNextBarButton = MyBarButtonItem(image: nil, style: .plain, target: nil, action: nil)
             }
             return privateNextBarButton!
         }
@@ -83,11 +69,11 @@ open class IQToolbar: UIToolbar, UIInputViewAudioFeedback {
     /**
      Title bar button of toolbar.
      */
-    private var privateTitleBarButton: IQTitleBarButtonItem?
-    @objc open var titleBarButton: IQTitleBarButtonItem {
+    private var privateTitleBarButton: MyTitleBarButtonItem?
+    @objc open var titleBarButton: MyTitleBarButtonItem {
         get {
             if privateTitleBarButton == nil {
-                privateTitleBarButton = IQTitleBarButtonItem(title: nil)
+                privateTitleBarButton = MyTitleBarButtonItem(title: nil)
                 privateTitleBarButton?.accessibilityLabel = "Title"
             }
             return privateTitleBarButton!
@@ -101,11 +87,11 @@ open class IQToolbar: UIToolbar, UIInputViewAudioFeedback {
     /**
      Done bar button of toolbar.
      */
-    private var privateDoneBarButton: IQBarButtonItem?
-    @objc open var doneBarButton: IQBarButtonItem {
+    private var privateDoneBarButton: MyBarButtonItem?
+    @objc open var doneBarButton: MyBarButtonItem {
         get {
             if privateDoneBarButton == nil {
-                privateDoneBarButton = IQBarButtonItem(title: nil, style: .done, target: nil, action: nil)
+                privateDoneBarButton = MyBarButtonItem(title: nil, style: .done, target: nil, action: nil)
             }
             return privateDoneBarButton!
         }
@@ -118,11 +104,11 @@ open class IQToolbar: UIToolbar, UIInputViewAudioFeedback {
     /**
      Fixed space bar button of toolbar.
      */
-    private var privateFixedSpaceBarButton: IQBarButtonItem?
-    @objc open var fixedSpaceBarButton: IQBarButtonItem {
+    private var privateFixedSpaceBarButton: MyBarButtonItem?
+    @objc open var fixedSpaceBarButton: MyBarButtonItem {
         get {
             if privateFixedSpaceBarButton == nil {
-                privateFixedSpaceBarButton = IQBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+                privateFixedSpaceBarButton = MyBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
             }
             privateFixedSpaceBarButton!.isSystemItem = true
 
@@ -141,7 +127,7 @@ open class IQToolbar: UIToolbar, UIInputViewAudioFeedback {
     }
 
     override init(frame: CGRect) {
-        _ = IQToolbar._classInitialize
+        _ = MyToolbar._classInitialize
         super.init(frame: frame)
         
         sizeToFit()
@@ -151,7 +137,7 @@ open class IQToolbar: UIToolbar, UIInputViewAudioFeedback {
     }
     
     @objc required public init?(coder aDecoder: NSCoder) {
-        _ = IQToolbar._classInitialize
+        _ = MyToolbar._classInitialize
         super.init(coder: aDecoder)
 
         sizeToFit()
