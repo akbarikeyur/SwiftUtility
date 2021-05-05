@@ -30,3 +30,13 @@ You can’t edit the content of your package dependencies directly. If you want 
 ### Delete a Package Dependency
 
 If you need to remove a package dependency from your Xcode project, navigate to the Swift Packages pane in the settings, then select the Swift package from the list of packages. Click the - button to remove the selected package dependency.
+
+
+==========================================================================
+### About this Package
+
+- Utilities files
+- All Extensions
+- My Keyboard Manager
+- All Custom Views with @IBDesignable
+
